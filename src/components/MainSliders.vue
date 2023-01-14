@@ -1,9 +1,12 @@
 <template>
-	<swiper :slides-per-view="1" :space-between="50" navigation :modules="modules" :pagination="{ clickable: true }">
-		<swiper-slide v-for="(slide, index) in slides" :key="index">
-			<MainSlideVue :title="slide.title" />
-		</swiper-slide>
-	</swiper>
+	<template v-for="(item, indexMain) in mainSlidersData" :key="indexMain">
+		<h2>{{ item.header }}</h2>
+		<swiper :slides-per-view="1" :space-between="50" navigation :modules="modules" :pagination="{ clickable: true }">
+			<swiper-slide v-for="(slide, index) in item.slides" :key="index">
+				<MainSlide :title="slide.name" />
+			</swiper-slide>
+		</swiper>
+	</template>
 </template>
 
 <script setup lang="ts">
@@ -14,15 +17,10 @@ import 'swiper/css/pagination';
 import 'swiper/css';
 
 import { Navigation, Pagination } from 'swiper';
-import MainSlideVue from './MainSlide.vue';
+import MainSlide from './MainSlide.vue';
+
+import type { ImainSlidersData } from 'src/types/slider';
+
 const modules = [Navigation, Pagination];
-
-const slides: mainSlides[] = [{ title: 'Новинка 1' }, { title: 'Новинка 2' }, { title: 'Новинка 3' }];
-//TODO типизация
-
-interface mainSlides {
-	title: string;
-}
-
-// Import Swiper styles
+defineProps<{ mainSlidersData: ImainSlidersData[] }>();
 </script>

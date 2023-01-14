@@ -13,10 +13,10 @@
 		<q-footer elevated>
 			<q-toolbar class="justify-center">
 				<q-tabs v-model="tab" class="text-white">
-					<q-tab name="mails" icon="mail" label="Mails" />
-					<q-tab name="alarms" icon="alarm" label="Alarms" />
-					<q-tab name="movies" icon="movie" label="Movies" />
-					<q-tab name="movies2" icon="movie" label="Movies" />
+					<q-tab name="home" icon="mail" label="Home" />
+					<q-tab name="catalog" icon="alarm" label="Catalog" />
+					<q-tab name="cart" icon="movie" label="Cart" />
+					<q-tab name="user" icon="movie" label="User" />
 				</q-tabs>
 			</q-toolbar>
 		</q-footer>
@@ -24,7 +24,20 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
+import { useRouter } from 'vue-router';
 
-const tab = ref<string>('mails');
+const tab = ref<string>('home');
+
+const router = useRouter();
+const toPage = (name: { value: string }) => {
+	router.push({ name: name.value });
+};
+
+watch(
+	() => tab.value,
+	() => {
+		toPage(tab);
+	}
+);
 </script>
