@@ -24,13 +24,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref, watch, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+
+onMounted(() => {
+	toPage(tab);
+});
 
 const tab = ref<string>('home');
 
 const router = useRouter();
-const toPage = (name: { value: string }) => {
+const toPage = (name: { value: string }): void => {
 	router.push({ name: name.value });
 };
 
