@@ -2,9 +2,9 @@
 import { joinURL } from 'ufo';
 import { StatusCodes } from 'http-status-codes';
 
-import { createApi } from '../../modules/axios';
+import { createApi } from 'src/modules/axios';
 
-import type { IProduct } from '../../types/products';
+import type { IProduct } from 'src/types/products';
 
 const api = createApi(joinURL(<string>process.env.API_URL, 'products'));
 

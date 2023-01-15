@@ -2,10 +2,10 @@ import { StatusCodes, ReasonPhrases } from 'http-status-codes';
 import { ResponseResolver, RestRequest, RestContext } from 'msw';
 import { tables } from './ids';
 
-import type { ImockDB } from '../../libs/mock-db';
+import type { ImockDB } from 'src/mock/libs/mock-db';
 
 // TODO: Разобраться с путями
-import type { IProduct } from '../../../types/products';
+import type { IProduct } from 'src/types/products';
 
 export default (
 	db: ImockDB,

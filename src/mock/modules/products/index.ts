@@ -1,11 +1,11 @@
 import { rest, RestHandler } from 'msw';
 
 // TODO: Поправить пути
-import initModel from '../../utils/init-model';
-import initCtrl from './controller';
-import { tables } from './ids';
+import initModel from 'src/mock/utils/init-model';
+import initCtrl from 'src/mock/modules/products/controller';
+import { tables } from 'src/mock/modules/products/ids';
 
-import type { ImockDB } from '../../libs/mock-db';
+import type { ImockDB } from 'src/mock/libs/mock-db';
 
 export default async (
 	mockDB: ImockDB,

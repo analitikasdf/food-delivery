@@ -1,8 +1,8 @@
 // TODO: Поправить пути
-import FIXTURE_TEST_TABLE from '../modules/__test__/fixtures/test-table.json';
+import FIXTURE_TEST_TABLE from 'src/mock/modules/__test__/fixtures/test-table.json';
 
-import { mockDB } from '../libs/mock-db';
-import initModel from './init-model';
+import { mockDB } from 'src/mock/libs/mock-db';
+import initModel from 'src/mock/utils/init-model';
 
 const TestMockDbInstance = new mockDB();
 
@@ -26,6 +26,8 @@ describe('service mock init-model', function () {
 		 */
 		await new Promise(res => setTimeout(res, 10));
 
-		await expect(TestMockDbInstance.getAll(TEST_SERVICE_NAME, tables.TEST_TABLE)).resolves.toEqual(FIXTURE_TEST_TABLE);
+		await expect(
+			TestMockDbInstance.getAll(TEST_SERVICE_NAME, tables.TEST_TABLE)
+		).resolves.toEqual(FIXTURE_TEST_TABLE);
 	});
 });
