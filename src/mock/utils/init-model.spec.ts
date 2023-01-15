@@ -1,4 +1,3 @@
-// TODO: Поправить пути
 import FIXTURE_TEST_TABLE from 'src/mock/modules/__test__/fixtures/test-table.json';
 
 import { mockDB } from 'src/mock/libs/mock-db';

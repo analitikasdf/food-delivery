@@ -1,4 +1,3 @@
-// TODO: разобраться с путями
 import { joinURL } from 'ufo';
 import { StatusCodes } from 'http-status-codes';
 

@@ -1,6 +1,5 @@
 import { rest, RestHandler } from 'msw';
 
-// TODO: Поправить пути
 import initModel from 'src/mock/utils/init-model';
 import initCtrl from 'src/mock/modules/products/controller';
 import { tables } from 'src/mock/modules/products/ids';
