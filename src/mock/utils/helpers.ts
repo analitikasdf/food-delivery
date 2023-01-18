@@ -16,9 +16,9 @@ import orderBy from 'lodash/orderBy';
  *
  */
 export const SortMockHelper = (
-  arr: Record<string, any>[],
-  sortBy: string[],
-  sortDir: Array<boolean | 'asc' | 'desc'> | undefined = ['asc']
+	arr: Record<string, any>[],
+	sortBy: string[],
+	sortDir: Array<boolean | 'asc' | 'desc'> | undefined = ['asc']
 ) => orderBy(arr, sortBy, sortDir);
 
 /**
@@ -32,17 +32,17 @@ export const SortMockHelper = (
  *
  */
 export const FindMockHelper = (
-  arr: Record<string, any>[],
-  condition: Record<
-    string,
-    | string
-    | number
-    | boolean
-    | string[]
-    | number[]
-    | Record<string, string | number | boolean | undefined>[]
-    | undefined
-  >
+	arr: Record<string, any>[],
+	condition: Record<
+		string,
+		| string
+		| number
+		| boolean
+		| string[]
+		| number[]
+		| Record<string, string | number | boolean | undefined>[]
+		| undefined
+	>
 ) => find(arr, condition);
 
 /**
@@ -56,45 +56,45 @@ export const FindMockHelper = (
  *
  */
 export const FilterMockHelper = (
-  arr: Record<string, any>[],
-  condition: Record<
-    string,
-    | string
-    | number
-    | boolean
-    | string[]
-    | number[]
-    | Record<string, string | number | boolean | undefined>[]
-    | undefined
-  >
+	arr: Record<string, any>[],
+	condition: Record<
+		string,
+		| string
+		| number
+		| boolean
+		| string[]
+		| number[]
+		| Record<string, string | number | boolean | undefined>[]
+		| undefined
+	>
 ) =>
-  filter(arr, (item: Record<string, any>) =>
-    Object.entries(condition).every(([key, value]) => {
-      if (value === undefined) {
-        return true;
-      }
+	filter(arr, (item: Record<string, any>) =>
+		Object.entries(condition).every(([key, value]) => {
+			if (value === undefined) {
+				return true;
+			}
 
-      if (Array.isArray(value)) {
-        return value.length
-          ? value.some((element) => {
-              if (typeof element !== 'object') {
-                return Array.isArray(item[key])
-                  ? item[key].includes(element)
-                  : Boolean(item?.[key] === element);
-              }
+			if (Array.isArray(value)) {
+				return value.length
+					? value.some(element => {
+							if (typeof element !== 'object') {
+								return Array.isArray(item[key])
+									? item[key].includes(element)
+									: Boolean(item?.[key] === element);
+							}
 
-              if (Array.isArray(item[key])) {
-                return some(item[key], element);
-              }
+							if (Array.isArray(item[key])) {
+								return some(item[key], element);
+							}
 
-              return some([item[key]], element);
-            })
-          : true;
-      }
+							return some([item[key]], element);
+					  })
+					: true;
+			}
 
-      return Boolean(item?.[key] === value);
-    })
-  );
+			return Boolean(item?.[key] === value);
+		})
+	);
 
 /**
  *
@@ -107,9 +107,9 @@ export const FilterMockHelper = (
  *
  */
 export const PickMockHelper = (
-  arr: Record<string, any>[] | Record<string, any> | undefined,
-  keyParts: string[]
+	arr: Record<string, any>[] | Record<string, any> | undefined,
+	keyParts: string[]
 ) =>
-  arr && Array.isArray(arr)
-    ? arr.map((item) => pick(item, keyParts))
-    : pick(arr, keyParts);
+	arr && Array.isArray(arr)
+		? arr.map(item => pick(item, keyParts))
+		: pick(arr, keyParts);

@@ -20,10 +20,19 @@ export default (
 	 *
 	 */
 	getProducts: async (req, res, ctx) => {
+		const response = await db.getAll(storeName, tables.PRODUCTS);
+		if (!response) {
+			return res(
+				ctx.delay(delay),
+				ctx.status(StatusCodes.NOT_FOUND),
+				ctx.text(ReasonPhrases.NOT_FOUND)
+			);
+		}
+
 		return res(
 			ctx.delay(delay),
 			ctx.status(StatusCodes.OK),
-			ctx.json(await db.getAll(storeName, tables.PRODUCTS))
+			ctx.json(response)
 		);
 	},
 

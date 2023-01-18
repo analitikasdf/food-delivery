@@ -1,0 +1,46 @@
+[
+	{
+		"id": 1,
+		"name": "dishes"
+	},
+	{
+		"id": 1,
+		"name": "hot dishes"
+	},
+	{
+		"id": 1,
+		"name": "special dishes"
+	},
+	{
+		"id": 1,
+		"name": "soups"
+	},
+	{
+		"id": 1,
+		"name": "hot drinks"
+	},
+	{
+		"id": 1,
+		"name": "cold drinks"
+	},
+	{
+		"id": 1,
+		"name": "deserts"
+	},
+	{
+		"id": 1,
+		"name": "beer"
+	},
+	{
+		"id": 1,
+		"name": "coctails"
+	},
+	{
+		"id": 1,
+		"name": "vodka"
+	},
+	{
+		"id": 1,
+		"name": "fish dishes"
+	}
+]
